@@ -35,16 +35,18 @@
     </div>
     <script>
         document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const validUsername = 'user';
-            const validPassword = 'pass123';
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            if (username === validUsername && password === validPassword) {
-                window.location.href = 'calendar.html'; //redirects to calendar page
-                document.getElementById('errorMsg').textContent = 'Please enter a valid username and password';
-            }
-        });
+    e.preventDefault();
+    const validUsername = 'user';
+    const validPassword = 'pass123';
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    if (username === validUsername && password === validPassword) {
+        window.location.href = 'calendar.html'; // redirect to calendar page
+    } else {
+        document.getElementById('errorMsg').textContent = 'Please enter a valid username and password';
+    }
+});
     </script>
 </body>
 </html>
