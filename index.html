@@ -6,17 +6,17 @@
     <style>
         body { 
             font-family: Arial, sans-serif; 
-            background: #141414; /* Black background */
-            color: #fff;     /* Optional: white text for contrast */
+            background: #141414; 
+            color: #fff; 
         }
         .login-container { 
             width: 300px; 
             margin: 100px auto; 
             padding: 20px; 
             border: 1px solid #ccc; 
-            background: #f3f3f3; /* Light grey background */
+            background: #f3f3f3; 
             border-radius: 10px;
-            color: #2c2525; /* Optional: dark text for form */
+            color: #2c2525; 
         }
         input[type="text"], input[type="password"] { width: 100%; padding: 8px; margin: 8px 0; }
         button { width: 100%; padding: 8px; }
@@ -35,18 +35,18 @@
     </div>
     <script>
         document.getElementById('loginForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const validUsername = 'user';
-    const validPassword = 'pass123';
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+            e.preventDefault();
+            const validUsername = 'user';
+            const validPassword = 'pass123';
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
 
-    if (username === validUsername && password === validPassword) {
-        window.location.href = 'calendar.html'; // redirect to calendar page
-    } else {
-        document.getElementById('errorMsg').textContent = 'Please enter a valid username and password';
-    }
-});
+            if (username === validUsername && password === validPassword) {
+                window.location.href = 'calendar.html';
+            } else {
+                document.getElementById('errorMsg').textContent = 'Please enter a valid username and password';
+            }
+        });
     </script>
 </body>
 </html>
