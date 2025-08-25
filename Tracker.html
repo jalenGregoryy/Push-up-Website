@@ -9,6 +9,8 @@
         .input-group { display: flex; flex-direction: column; align-items: center; }
         input[type="number"] { padding: 8px; width: 80px; margin-top: 5px; }
         input[type="submit"] { margin-top: 20px; padding: 8px 20px; }
+        .image-row { display: flex; justify-content: center; gap: 30px; margin-top: 20px; }
+        .image-row img { width: 150px; height: auto; border-radius: 8px; }
     </style>
 </head>
 <body>
@@ -32,11 +34,15 @@
     <div id="dateMessage" style="margin-top: 15px; font-size: 18px;"></div>
     <div id="counter" style="margin-top: 20px; font-size: 18px; color: green;"></div>
 
+    <div class="image-row">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/025/213/947/small_2x/3d-sporty-male-character-performing-standard-push-up-exercise-at-home-gym-png.png" alt="Push Up">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/067/724/073/small/3d-plus-size-overweight-african-woman-doing-sit-ups-on-a-mat-png.png" alt="Sit Up">
+    </div>
+
     <script>
         let totalPushups = 0;
         let totalSitups = 0;
 
-        // Show the selected date
         const selectedDate = localStorage.getItem('selectedDate');
         if (selectedDate) {
             document.getElementById('dateMessage').textContent = `On ${selectedDate} you did:`;
