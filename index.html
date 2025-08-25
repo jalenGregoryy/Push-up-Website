@@ -1,72 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content "IE=edge">
-	<meta name= "viewport" content="width=device-width, initial-scale=1.0">
-	<title> Push-ups and Sit-ups tracker </title>
-	<style>
-        .form-container {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 30px;
-        }
-        .input-group {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        body {
-            font-family: Arial, sans-serif;
+    <meta charset="UTF-8">
+    <title>TruFit Login</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
             background: #141414; /* Black background */
             color: #fff;     /* Optional: white text for contrast */
         }
+        .login-container { 
+            width: 300px; 
+            margin: 100px auto; 
+            padding: 20px; 
+            border: 1px solid #ccc; 
+            background: #f3f3f3; /* Light grey background */
+            border-radius: 10px;
+            color: #2c2525; /* Optional: dark text for form */
+        }
+        input[type="text"], input[type="password"] { width: 100%; padding: 8px; margin: 8px 0; }
+        button { width: 100%; padding: 8px; }
+        .error { color: red; }
     </style>
 </head>
-     <body>
-        <h1 style="text-align: center; color: rgba(97, 153, 167, 0.795);">TruFit</h1>
-	    <h2 style="text-align: center; color: rgba(97, 153, 167, 0.795);">Enter the amount of push ups and sit ups you have done today!</h2>
-            <form id="trackerForm" style="display: flex; flex-direction: column; align-items: center;">
-        <div class="form-container">
-            <div class="input-group">
-                <label for="pushups">Push-ups:</label>
-                <input type="number" id="pushups" name="pushups" required>
-            </div>
-            <div class="input-group">
-                <label for="situps">Sit-ups:</label>
-                <input type="number" id="situps" name="situps" required>
-            </div>
-        </div>
-        <input type="submit" value="Submit" style="margin-top: 20px;">
-    </form>
-    <div id="dateMessage" style="text-align:center; margin-top:15px; font-size:18px;"></div>
-    <div id="counter" style="margin-top:20px; text-align:center; font-size:18px; color:green;"></div>
-    <div class="image-row" style="display: flex; justify-content: center; gap: 30px; margin-top: 20px;">
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/025/213/947/small_2x/3d-sporty-male-character-performing-standard-push-up-exercise-at-home-gym-png.png" alt="Push Up" style="width:150px; height:auto; border-radius:8px;">
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/067/724/073/small/3d-plus-size-overweight-african-woman-doing-sit-ups-on-a-mat-png.png" alt="Sit Up" style="width:150px; height:auto; border-radius:8px;">
+<body>
+    <div class="login-container">
+        <h2 style="text-align: center; color: rgb(44, 55, 59);">Log in to your Tru Fit account</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+            <div class="error" id="errorMsg"></div>
+        </form>
     </div>
     <script>
-        let totalPushups = 0;
-        let totalSitups = 0;
-
-        // Get the selected date from localStorage
-        const selectedDate = localStorage.getItem('selectedDate');
-        if (selectedDate) {
-            document.getElementById('dateMessage').textContent =
-                `On ${selectedDate} you did:`;
-        }
-
-        document.getElementById('trackerForm').addEventListener('submit', function(e) {
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const pushups = parseInt(document.getElementById('pushups').value, 10) || 0;
-            const situps = parseInt(document.getElementById('situps').value, 10) || 0;
-            totalPushups += pushups;
-            totalSitups += situps;
-            document.getElementById('counter').textContent =
-                `Total Push-ups: ${totalPushups} | Total Sit-ups: ${totalSitups}`;
-            document.getElementById('trackerForm').reset();
+            const validUsername = 'user';
+            const validPassword = 'pass123';
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            if (username === validUsername && password === validPassword) {
+                window.location.href = 'calendar.html'; //redirects to calendar page
+                document.getElementById('errorMsg').textContent = 'Please enter a valid username and password';
+            }
         });
     </script>
-     </body>
+</body>
 </html>
